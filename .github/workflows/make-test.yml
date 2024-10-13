@@ -9,6 +9,12 @@ jobs:
       - uses: actions/checkout@master
         with:
           fetch-depth: '2'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
       - name: make test
         run: make test
         shell: bash
