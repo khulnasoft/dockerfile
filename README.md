@@ -21,7 +21,7 @@ This is a repo to hold various dockerfile for images I create.
 
 Almost all of these live on dockerhub under [jess](https://hub.docker.com/r/khulnasoft/).
 Because you cannot use notary with autobuilds on dockerhub I also build these
-continuously on a private registry at [r.j3ss.co](https://r.j3ss.co/) for public download. (You're
+continuously on a private registry at [khulnasoft](https://khulnasoft/) for public download. (You're
 welcome.)
 
 ## Resources

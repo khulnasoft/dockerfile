@@ -3,7 +3,7 @@
 # docker run -it --rm \
 # 	-v ~/.moprc:/root/.moprc \
 # 	--name mop \
-# 	r.j3ss.co/mop
+# 	khulnasoft/mop
 #
 FROM golang:alpine as builder
 

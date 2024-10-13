@@ -9,7 +9,7 @@
 #	--name figma-wine \
 #	jess/figma-wine bash
 #
-FROM r.j3ss.co/wine
+FROM khulnasoft/wine
 LABEL maintainer "KhulnaSoft DevOps <info@khulnasoft.com>"
 
 ENV HOME /home/user

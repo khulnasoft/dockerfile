@@ -1,5 +1,5 @@
 FROM golang:alpine AS builder
-MAINTAINER KhulnaSoft DevOps <info@khulnasoft.com>
+LABEL maintainer="KhulnaSoft DevOps <info@khulnasoft.com>"
 
 ENV PATH /go/bin:/usr/local/go/bin:$PATH
 ENV GOPATH /go
@@ -25,7 +25,7 @@ RUN make deps generate
 RUN CGO_ENABLED=0 go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o /usr/bin/fleet ./cmd/fleet
 RUN CGO_ENABLED=0 go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o /usr/bin/fleetctl ./cmd/fleetctl
 
-FROM r.j3ss.co/osquery AS osquery
+FROM khulnasoft/osquery AS osquery
 
 FROM scratch
 

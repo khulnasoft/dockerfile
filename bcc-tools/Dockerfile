@@ -4,16 +4,17 @@
 #	-v /lib/modules:/lib/modules:ro \
 #	-v /usr/src:/usr/src:ro \
 #	-v /etc/localtime:/etc/localtime:ro \
-#	r.j3ss.co/bcc-tools
+#	khulnasoft/bcc-tools
 #
-FROM debian:sid-slim
+FROM debian:buster
 LABEL \
 	author="KhulnaSoft DevOps <info@khulnasoft.com>"
 
 ENV PATH /usr/share/bcc/tools:$PATH
 
 # Add non-free apt sources
-RUN sed -i "s#deb http://deb.debian.org/debian buster main#deb http://deb.debian.org/debian buster main contrib non-free#g" /etc/apt/sources.list
+RUN sed -i "s#^deb http://deb.debian.org/debian buster main#deb http://deb.debian.org/debian buster main contrib non-free#g" /etc/apt/sources.list && \
+    apt-get update && apt-get install -y
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
@@ -30,7 +31,6 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y \
 	debhelper \
 	cmake \
-	libllvm3.9 \
 	llvm-dev \
 	libclang-dev \
 	libelf-dev \

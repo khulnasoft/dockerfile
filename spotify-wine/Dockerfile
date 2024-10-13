@@ -9,7 +9,7 @@
 #	--name spotify-wine \
 #	jess/spotify-wine bash
 #
-FROM r.j3ss.co/wine
+FROM khulnasoft/wine
 LABEL maintainer "KhulnaSoft DevOps <info@khulnasoft.com>"
 
 ADD https://download.scdn.co/SpotifySetup.exe /usr/src/SpotifySetup.exe
