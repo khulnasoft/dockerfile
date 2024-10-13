@@ -40,7 +40,7 @@ command_not_found_handle () {
 	# shellcheck disable=SC2046
 	docker run $DASHT -i -u $(whoami) -w "$HOME" \
 		$(env | cut -d= -f1 | awk '{print "-e", $1}') \
-		$dockerfile_RUN_FLAGS \
+		$DOCKERFILE_RUN_FLAGS \
 		$DEVICES \
 		$VOLUMES \
 		-v /etc/passwd:/etc/passwd:ro \

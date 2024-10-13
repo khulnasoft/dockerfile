@@ -1,4 +1,4 @@
-FROM r.j3ss.co/wireguard:install
+FROM khulnasoft/wireguard:install
 LABEL maintainer "KhulnaSoft DevOps <info@khulnasoft.com>"
 
 RUN apt update && apt -y install \

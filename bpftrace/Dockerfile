@@ -1,4 +1,4 @@
-FROM r.j3ss.co/bcc
+FROM khulnasoft/bcc
 LABEL \
 	author="KhulnaSoft DevOps <info@khulnasoft.com>"
 

@@ -6,7 +6,7 @@
 # 	--name wireguard \
 # 	-v /lib/modules:/lib/modules \
 # 	-v /usr/src:/usr/src:ro \
-# 	r.j3ss.co/wireguard:install
+# 	khulnasoft/wireguard:install
 #
 FROM debian:sid-slim
 LABEL maintainer "KhulnaSoft DevOps <info@khulnasoft.com>"

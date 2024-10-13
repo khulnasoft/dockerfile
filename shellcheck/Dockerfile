@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-LABEL maintainer "KhulnaSoft DevOps <info@khulnasoft.com>"
+LABEL maintainer="KhulnaSoft DevOps <info@khulnasoft.com>"
 
 RUN apt-get update && apt-get install -y \
 	file \

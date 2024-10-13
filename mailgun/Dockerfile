@@ -1,4 +1,4 @@
-FROM r.j3ss.co/curl
+FROM khulnasoft/curl
 LABEL maintainer "KhulnaSoft DevOps <info@khulnasoft.com>"
 
 RUN apk add --no-cache \

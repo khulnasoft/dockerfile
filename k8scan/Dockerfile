@@ -1,5 +1,5 @@
 FROM golang:1.12-alpine as builder
-MAINTAINER KhulnaSoft DevOps <info@khulnasoft.com>
+LABEL maintainer="KhulnaSoft DevOps <info@khulnasoft.com>"
 
 ENV PATH /go/bin:/usr/local/go/bin:$PATH
 ENV GOPATH /go
@@ -31,7 +31,7 @@ RUN set -x \
 	&& CGO_ENABLED=0 go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o /usr/bin/k8scan *.go \
 	&& echo "Build complete."
 
-FROM r.j3ss.co/masscan
+FROM khulnasoft/masscan
 
 COPY --from=builder /usr/bin/k8scan /usr/bin/k8scan
 COPY --from=builder /etc/ssl/certs/ /etc/ssl/certs

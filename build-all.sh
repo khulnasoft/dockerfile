@@ -3,7 +3,7 @@ set -e
 set -o pipefail
 
 SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
-REPO_URL="${REPO_URL:-r.j3ss.co}"
+DOCKER_REGISTRY_URL="${DOCKER_REGISTRY_URL:-docker.io}"
 JOBS=${JOBS:-2}
 
 ERRORS="$(pwd)/errors"
