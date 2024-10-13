@@ -16,8 +16,13 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 # Install Atom and additional dependencies
-RUN wget -q https://github.com/atom/atom/releases/latest/download/atom-amd64.deb -O /tmp/atom.deb && \
-    apt-get update && \
+FROM debian:bullseye-slim AS builder
+RUN apt-get update && apt-get install -y wget
+RUN wget -q https://github.com/atom/atom/releases/latest/download/atom-amd64.deb -O /tmp/atom.deb
+
+FROM debian:bullseye-slim
+COPY --from=builder /tmp/atom.deb /tmp/atom.deb
+RUN apt-get update && \
     apt-get install -y /tmp/atom.deb git gconf-service gconf2 gvfs-bin \
     libasound2 libcap2 libgconf-2-4 libgtk2.0-0 libnotify4 libnss3 \
     libxkbfile1 libxss1 libxtst6 libx11-xcb-dev xdg-utils --no-install-recommends && \
